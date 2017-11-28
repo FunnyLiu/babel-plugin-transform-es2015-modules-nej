@@ -87,8 +87,7 @@ exports.default = function (_ref) {
                             return;
                         }
                     } catch (e) {
-                        console.error(e.name)
-                    } 
+                    }
                 },
                 exit: function exit(path) {
                     if (this.stop) {
