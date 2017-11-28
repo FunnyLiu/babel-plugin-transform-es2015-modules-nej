@@ -1,7 +1,5 @@
 # 将es6的模块语法转换为nej的模块语法
 
-此插件由babel官方插件：babel-plugin-transform-es2015-modules-amd改编而成，务必配合babel-presets-env同时使用
-
 ## nej和es6对照
 
 1. 输出结果集空间
