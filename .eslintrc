@@ -1,0 +1,36 @@
+{
+    "extends": "eslint:recommended",
+    "rules": {
+      "comma-dangle": ["error", "never"],
+      "no-magic-numbers": ["warn"],
+      "no-extra-semi": ["warn"],
+      "no-extra-boolean-cast":["warn"],
+      "no-else-return": ["warn"],
+      "no-unused-vars": ["warn"],
+      "no-console": ["warn"],
+      "curly": ["warn","all"],
+      "no-empty-function": ["warn"],
+      "no-unmodified-loop-condition": ["warn"],
+      "vars-on-top": ["warn"],
+      "no-use-before-define": ["error"],
+      "max-len": ["warn",150],
+      "no-spaced-func": ["warn"],
+      "no-useless-escape": ["warn"]
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "worker": true,
+      "mocha": true
+    },
+    "globals": {
+      "jQuery": true,
+      "$": true,
+      "NEJ": true,
+      "define": true,
+      "Regular": true,
+      "URS" : true,
+      "CryptoJS": true
+    }
+  }
+  
