@@ -83,6 +83,22 @@ module.exports = function (babel) {
     return {
         visitor: {
             Program: {
+                enter: function enter(path) { // 如果是nej文件，不处理
+                    try {
+                        if(!path.node.body[0]) { // 空文件
+                            return;
+                        }
+                        if (path.node.body[0].expression.callee.name === 'define') {
+                            this.stop = true;
+                            return;
+                        }
+                        if (path.node.body[0].expression.callee.object.name === 'nej' && path.node.body[0].expression.callee.property.name === 'define') {
+                            this.stop = true;
+                            return;
+                        }
+                    } catch (e) {
+                    }
+                },
                 exit: function exit (path) { //从根目录开始遍历
                     const statements = path.node.body; // 获取全部语句  
                     
