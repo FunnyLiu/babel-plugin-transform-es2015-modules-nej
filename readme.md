@@ -5,12 +5,12 @@
 ### 1. 注入参数 
 在es6中，引入的对象为只读对象，因此使用时必须将对象复制出来使用。这个版本暂时删掉了，因为感觉没啥用。
 ```javascript
-import {o, f, r} form 'nej';
+import {o, f, r} from 'nej';
 let obj = o, func = f, arr = r;
 ```
 
 ### 2. 输出结果集空间
-不需要额外引入，直接写export极客
+不需要额外引入，直接写export即可
 
 ### 3. 资源后缀
 - 对于javascript资源，是否需要文件扩展名，保持和nej语法一致
