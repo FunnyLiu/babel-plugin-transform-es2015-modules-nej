@@ -85,7 +85,7 @@ module.exports = function (babel) {
             Program: {
                 enter: function enter(path) { // 如果是nej文件，不处理
                     try {
-                        if(!path.node.body[0]) { // 空文件
+                        if (!path.node.body[0]) { // 空文件
                             return;
                         }
                         if (path.node.body[0].expression.callee.name === 'define') {
@@ -96,20 +96,19 @@ module.exports = function (babel) {
                             this.stop = true;
                             return;
                         }
-                    } catch (e) {
-                    }
+                    } catch (e) {}
                 },
-                exit: function exit (path) { //从根目录开始遍历
+                exit: function exit(path) { //从根目录开始遍历
                     const statements = path.node.body; // 获取全部语句  
-                    
+
                     let names = [],
                         urls = [],
                         contents = [],
-                        returnStatement, 
+                        returnStatement,
                         extraParams = 0,
                         isOutPutResult = false //是否存在输出结果集空间
                     ;
-    
+
                     statements.forEach(statement => {
                         /**
                          * 如果是import
@@ -127,7 +126,7 @@ module.exports = function (babel) {
                                 names.push(name);
                             }
                             if (url) {
-    
+
                                 urls.push(url);
                             }
                         }
@@ -140,7 +139,7 @@ module.exports = function (babel) {
                             if (t.isExportDefaultDeclaration(statement)) {
                                 returnStatement = createReturn(statement.declaration.name);
                             }
-    
+
                             if (t.isExportNamedDeclaration(statement)) {
                                 isOutPutResult = true;
                                 statement.specifiers.forEach(specifier => {
@@ -155,30 +154,28 @@ module.exports = function (babel) {
                             contents.push(statement);
                         }
                     });
-    
+
                     if (isOutPutResult) {
                         names.push(INJECT_PARAMS[0]);
                     }
-    
+
                     if (extraParams) {
                         names = names.concat(INJECT_PARAMS.slice(1, ++extraParams));
                     }
-    
+
                     if (returnStatement) {
                         contents.push(returnStatement);
                     }
-    
-                    if (names.length || urls.length) {
-                        let newBody = createDefine(urls, names, contents);
-    
-                        /**
-                         * 清空文件中的代码，创建define，放入body中
-                         */
-                        for (; 0 < statements.length;) {
-                            path.get('body.0').remove();
-                        }
-                        path.unshiftContainer('body', newBody);
+
+                    let newBody = createDefine(urls, names, contents);
+
+                    /**
+                     * 清空文件中的代码，创建define，放入body中
+                     */
+                    for (; 0 < statements.length;) {
+                        path.get('body.0').remove();
                     }
+                    path.unshiftContainer('body', newBody);
                 }
             }
         }
