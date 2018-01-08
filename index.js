@@ -129,7 +129,6 @@ module.exports = function (babel) {
                                 name,
                                 url
                             } = importTransform(statement);
-                            console.log()
                             if (name.name) {
                                 names.push(name);
                             }
