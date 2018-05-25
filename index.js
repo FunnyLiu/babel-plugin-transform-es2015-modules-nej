@@ -68,7 +68,7 @@ module.exports = function (babel) {
     }
 
     addPrefix = function (url) {
-        const [htmlExp, jsonExp] = [/(\.html)|(\.css)$/, /(\.json)$/];
+        const [htmlExp, jsonExp] = [/(\.html)|(\.htm)|(\.css)$/, /(\.json)$/];
 
         if (htmlExp.test(url)) {
             url = 'text!' + url;

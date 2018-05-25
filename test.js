@@ -6,6 +6,7 @@
 
 import k from 'base/klass';
 import m from 'pro/common/page';
+import html from  './module.htm';
 import _adminVideoConfig from 'pro/common/config/adminVideoConfig'; // 统一的视频配置，其他文件不需要再依赖了
 import _adminUploadConfig from 'pro/common/config/adminUploadConfig'; // 统一的上传配置，其他文件不需要再依赖了
 import _setting from 'pool/cache-base/src/setting';
