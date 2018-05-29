@@ -39,7 +39,7 @@ module.exports = function (babel) {
         if (!statement.specifiers.length) {
             url = statement.source.value;
         }
-        // 获取import语句的name和url
+        // 获取 import 语句的 name 和 url
         else {
             [name, url] = [statement.specifiers[0].local.name, statement.source.value];
         }
@@ -47,7 +47,7 @@ module.exports = function (babel) {
         // html，json，css类型增加前缀
         url = addPrefix(url);
 
-        // url为nej时，标记注入额外参数
+        // url 为 nej 时，标记注入额外参数
         if (url == 'nej') {
             extraParams += statement.specifiers.length;
             name = '';

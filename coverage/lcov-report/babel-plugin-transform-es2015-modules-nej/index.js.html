@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for babel-plugin-transform-es2015-modules-nej/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">babel-plugin-transform-es2015-modules-nej/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.85% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>54/82</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>28/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.89% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.95% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>53/78</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = function (babel) {
+    const {
+        types: t
+    } = babel;
+&nbsp;
+    var isImport, isExport,
+        INJECT_PARAMS = [t.identifier("p"), t.identifier("o"), t.identifier("f"), t.identifier("r")],
+        createReturn, createObj, createDefine,
+        replace, importTransform, addPrefix;
+&nbsp;
+    createReturn = function (returnValue) {
+        return t.returnStatement(t.identifier(returnValue));
+    }
+&nbsp;
+    createObj = <span class="fstat-no" title="function not covered" >function (key, prop) {</span>
+<span class="cstat-no" title="statement not covered" >        key = t.identifier(key);</span>
+<span class="cstat-no" title="statement not covered" >        prop = t.identifier(prop);</span>
+<span class="cstat-no" title="statement not covered" >        return t.expressionStatement(t.assignmentExpression('=',</span>
+            t.memberExpression(
+                key,
+                prop),
+            prop
+        ));
+    }
+&nbsp;
+    createDefine = function (urls, names, contents) {
+        return t.expressionStatement(
+            t.callExpression(
+                t.Identifier('define'), [
+                    t.arrayExpression(urls),
+                    t.functionExpression(null, names, t.blockStatement(contents))
+                ]
+            )
+        )
+    }
+&nbsp;
+    importTransform = function (statement) {
+        let name, url;
+        if (!statement.specifiers.length) {
+            url = statement.source.value;
+        }
+        // 获取 import 语句的 name 和 url
+        else {
+            [name, url] = [statement.specifiers[0].local.name, statement.source.value];
+        }
+&nbsp;
+        // html，json，css类型增加前缀
+        url = addPrefix(url);
+&nbsp;
+        // url 为 nej 时，标记注入额外参数
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (url == 'nej') {
+<span class="cstat-no" title="statement not covered" >            extraParams += statement.specifiers.length;</span>
+<span class="cstat-no" title="statement not covered" >            name = '';</span>
+<span class="cstat-no" title="statement not covered" >            url = '';</span>
+        } else {
+            name = t.identifier(name);
+            url = t.stringLiteral(url);
+        }
+&nbsp;
+        return {
+            name,
+            url
+        }
+    }
+&nbsp;
+    isExport = function (statement) {
+        return t.isExportDefaultDeclaration(statement) || t.isExportNamedDeclaration(statement);
+    }
+&nbsp;
+    addPrefix = function (url) {
+        const [htmlExp, jsonExp] = [/(\.html?)|(\.css)$/, /(\.json)$/];
+&nbsp;
+        if (htmlExp.test(url)) {
+            url = 'text!' + url;
+        }
+        if (jsonExp.test(url)) {
+            url = 'json!' + url;
+        }
+        return url;
+    }
+&nbsp;
+&nbsp;
+    return {
+        visitor: {
+            Program: {
+                enter: function enter(path) { 
+                    // 不处理
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!path.isCallExpression()) return false;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var args = path.get("arguments");</span>
+<span class="cstat-no" title="statement not covered" >                    if (args.length !== 1) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+                
+<span class="cstat-no" title="statement not covered" >                    var arg = args[0];</span>
+<span class="cstat-no" title="statement not covered" >                    if (!arg.isStringLiteral()) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+&nbsp;
+                    // 如果是nej文件，不处理
+                    // 空文件
+<span class="cstat-no" title="statement not covered" >                    if (!path.node.body[0]) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+&nbsp;
+                    //define
+<span class="cstat-no" title="statement not covered" >                    try {</span>
+<span class="cstat-no" title="statement not covered" >                        if (path.node.body[0].expression.callee.name.toLocaleLowerCase() === 'define') {</span>
+<span class="cstat-no" title="statement not covered" >                            this.stop = true;</span>
+<span class="cstat-no" title="statement not covered" >                            return;</span>
+                        }
+                    } catch (e) {}
+                    // nej.define
+<span class="cstat-no" title="statement not covered" >                    try {</span>
+<span class="cstat-no" title="statement not covered" >                        if (path.node.body[0].expression.callee.object.name.toLocaleLowerCase() === 'nej' &amp;&amp; path.node.body[0].expression.callee.property.name === 'define') {</span>
+<span class="cstat-no" title="statement not covered" >                            this.stop = true;</span>
+<span class="cstat-no" title="statement not covered" >                            return;</span>
+                        }
+                    } catch (e) {}
+                },
+                exit: function exit(path) { //从根目录开始遍历
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.stop) {
+<span class="cstat-no" title="statement not covered" >                        return;</span>
+                    }
+                    const statements = path.node.body; // 获取全部语句  
+&nbsp;
+                    let names = [],
+                        urls = [],
+                        contents = [],
+                        returnStatement,
+                        extraParams = 0,
+                        isOutPutResult = false //是否存在输出结果集空间
+                    ;
+&nbsp;
+                    statements.forEach(statement =&gt; {
+                        /**
+                         * 如果是import
+                         * import a from 'url' -&gt; names.push(a);urls.push(url)
+                         * import {a, b} from 'url' -&gt; names.push(uniqueRandomName);urls.push(url); a = uniqueRandomName.a; b = uniqueRandomName.b;
+                         * import {a, b, c} from 'nej' -&gt; names.push(p, a, b, c); 最后才执行，执行后seal names
+                         */
+                        if (t.isImportDeclaration(statement)) {
+                            let {
+                                name,
+                                url
+                            } = importTransform(statement);
+                            if (name.name) {
+                                names.push(name);
+                            }
+                            <span class="missing-if-branch" title="else path not taken" >E</span>if (url) {
+&nbsp;
+                                urls.push(url);
+                            }
+                        }
+                        /**
+                         * 如果是export
+                         * export default a; -&gt; return a;
+                         * export {a, b, c}; -&gt; p.a = a; p.b = b; p.c = c;
+                         */
+                        else if (isExport(statement)) {
+                            <span class="missing-if-branch" title="else path not taken" >E</span>if (t.isExportDefaultDeclaration(statement)) {
+                                returnStatement = createReturn(statement.declaration.name);
+                            }
+&nbsp;
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (t.isExportNamedDeclaration(statement)) {
+<span class="cstat-no" title="statement not covered" >                                isOutPutResult = true;</span>
+<span class="cstat-no" title="statement not covered" >                                statement.specifiers.forEach(specifier =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                                    contents.push(createObj('p', specifier.local.name));</span>
+                                })
+                            }
+                        }
+                        /**
+                         * 如果都不是，不改变，直接放入contents，准备创建为define回调函数函数的函数体
+                         */
+                        else {
+                            contents.push(statement);
+                        }
+                    });
+&nbsp;
+                    if(names.length &gt; 0 || returnStatement){
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (isOutPutResult) {
+<span class="cstat-no" title="statement not covered" >                            names.push(INJECT_PARAMS[0]);</span>
+                        }
+    
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (extraParams) {
+<span class="cstat-no" title="statement not covered" >                            names = names.concat(INJECT_PARAMS.slice(1, ++extraParams));</span>
+                        }
+    
+                        if (returnStatement) {
+                            contents.push(returnStatement);
+                        }
+    
+                        let newBody = createDefine(urls, names, contents);
+    
+                        /**
+                         * 清空文件中的代码，创建define，放入body中
+                         */
+                        for (; 0 &lt; statements.length;) {
+                            path.get('body.0').remove();
+                        }
+                        path.unshiftContainer('body', newBody);
+                    }
+                }
+            }
+        }
+    };
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue May 29 2018 20:53:51 GMT+0800 (CST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
