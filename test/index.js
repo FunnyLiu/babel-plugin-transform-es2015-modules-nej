@@ -7,7 +7,6 @@ const assert = require('assert');
 
 const getBabelOps = pluginOps => {
     return {
-        presets: [],
         plugins: [[path.resolve(__dirname, '../index.js'), pluginOps]]
     };
 };
@@ -34,7 +33,8 @@ describe('function test', () => {
     it('export test', () => {
         return assertTransform(
             path.join(__dirname, './function/export.actual.js'),
-            path.join(__dirname, './function/export.expected.js')
+            path.join(__dirname, './function/export.expected.js'),
+            babelOps
         )
     })
 })

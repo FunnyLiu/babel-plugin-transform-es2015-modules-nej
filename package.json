@@ -12,6 +12,7 @@
     "assert-transform": "^1.0.0",
     "babel-preset-env": "^1.7.0",
     "istanbul": "^0.4.5",
+    "lodash": "^4.17.10",
     "mocha": "^5.2.0"
   }
 }

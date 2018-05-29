@@ -1,3 +1,5 @@
+const { get } = require('lodash');
+
 module.exports = function (babel) {
     const {
         types: t
@@ -79,38 +81,55 @@ module.exports = function (babel) {
         return url;
     }
 
+    hasNEJDefine = function(node) {
+        const calleeName = get(node, 'expression.callee.name');
+        if(calleeName) {
+            return calleeName.toLocaleLowerCase() === 'define';
+        }
+
+        const calleeObj = get(node, 'expression.callee.object.name');
+        const calleeProp = get(node, 'expression.callee.property.name');
+        if(calleeObj && calleeProp) {
+            return calleeObj.toLocaleLowerCase() === 'nej' && calleeProp.toLocaleLowerCase() === 'define';
+        }
+
+        return false;
+    }
 
     return {
         visitor: {
             Program: {
                 enter: function enter(path) { 
                     // 不处理
-                    if (!path.isCallExpression()) return false;
+                    // if (!path.isCallExpression()) {
+                    //     this.stop = true;
+                    //     return false
+                    // };
 
-                    var args = path.get("arguments");
-                    if (args.length !== 1) return false;
+                    // var args = path.get("arguments");
+                    // if (args.length !== 1) {
+                    //     this.stop = true;
+                    //     return false;
+                    // }
                 
-                    var arg = args[0];
-                    if (!arg.isStringLiteral()) return false;
+                    // var arg = args[0];
+                    // if (!arg.isStringLiteral()) {
+                    //     this.stop = true;
+                    //     return false;
+                    // }
 
-                    // 如果是nej文件，不处理
                     // 空文件
-                    if (!path.node.body[0]) return false;
+                    if (!path.node.body.length) {
+                        this.stop = true;
+                        return;
+                    }
 
-                    //define
-                    try {
-                        if (path.node.body[0].expression.callee.name.toLocaleLowerCase() === 'define') {
+                    path.node.body.forEach( node => {
+                        if (hasNEJDefine(node)) {
                             this.stop = true;
-                            return;
+                            return false;
                         }
-                    } catch (e) {}
-                    // nej.define
-                    try {
-                        if (path.node.body[0].expression.callee.object.name.toLocaleLowerCase() === 'nej' && path.node.body[0].expression.callee.property.name === 'define') {
-                            this.stop = true;
-                            return;
-                        }
-                    } catch (e) {}
+                    })
                 },
                 exit: function exit(path) { //从根目录开始遍历
                     if (this.stop) {
@@ -171,7 +190,7 @@ module.exports = function (babel) {
                         }
                     });
 
-                    if(names.length > 0 || returnStatement){
+                    if(names.length > 0 || returnStatement || contents.length > 0){
                         if (isOutPutResult) {
                             names.push(INJECT_PARAMS[0]);
                         }
