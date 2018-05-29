@@ -68,7 +68,7 @@ module.exports = function (babel) {
     }
 
     addPrefix = function (url) {
-        const [htmlExp, jsonExp] = [/(\.html)|(\.htm)|(\.css)$/, /(\.json)$/];
+        const [htmlExp, jsonExp] = [/(\.html?)|(\.css)$/, /(\.json)$/];
 
         if (htmlExp.test(url)) {
             url = 'text!' + url;
@@ -83,11 +83,20 @@ module.exports = function (babel) {
     return {
         visitor: {
             Program: {
-                enter: function enter(path) { // 如果是nej文件，不处理
+                enter: function enter(path) { 
+                    // 不处理
+                    if (!path.isCallExpression()) return false;
 
-                    if (!path.node.body[0]) { // 空文件
-                        return;
-                    }
+                    var args = path.get("arguments");
+                    if (args.length !== 1) return false;
+                
+                    var arg = args[0];
+                    if (!arg.isStringLiteral()) return false;
+
+                    // 如果是nej文件，不处理
+                    // 空文件
+                    if (!path.node.body[0]) return false;
+
                     //define
                     try {
                         if (path.node.body[0].expression.callee.name.toLocaleLowerCase() === 'define') {
@@ -162,27 +171,29 @@ module.exports = function (babel) {
                         }
                     });
 
-                    if (isOutPutResult) {
-                        names.push(INJECT_PARAMS[0]);
+                    if(names.length > 0 || returnStatement){
+                        if (isOutPutResult) {
+                            names.push(INJECT_PARAMS[0]);
+                        }
+    
+                        if (extraParams) {
+                            names = names.concat(INJECT_PARAMS.slice(1, ++extraParams));
+                        }
+    
+                        if (returnStatement) {
+                            contents.push(returnStatement);
+                        }
+    
+                        let newBody = createDefine(urls, names, contents);
+    
+                        /**
+                         * 清空文件中的代码，创建define，放入body中
+                         */
+                        for (; 0 < statements.length;) {
+                            path.get('body.0').remove();
+                        }
+                        path.unshiftContainer('body', newBody);
                     }
-
-                    if (extraParams) {
-                        names = names.concat(INJECT_PARAMS.slice(1, ++extraParams));
-                    }
-
-                    if (returnStatement) {
-                        contents.push(returnStatement);
-                    }
-
-                    let newBody = createDefine(urls, names, contents);
-
-                    /**
-                     * 清空文件中的代码，创建define，放入body中
-                     */
-                    for (; 0 < statements.length;) {
-                        path.get('body.0').remove();
-                    }
-                    path.unshiftContainer('body', newBody);
                 }
             }
         }
