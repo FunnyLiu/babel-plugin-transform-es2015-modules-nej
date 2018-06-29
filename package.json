@@ -4,8 +4,15 @@
   "description": "transform es6 module to nej module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "istanbul cover _mocha  ./test/index.js"
   },
   "author": "CaoY",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "assert-transform": "^1.0.0",
+    "babel-preset-env": "^1.7.0",
+    "istanbul": "^0.4.5",
+    "lodash": "^4.17.10",
+    "mocha": "^5.2.0"
+  }
 }

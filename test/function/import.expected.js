@@ -1,0 +1,1 @@
+define(['pool/component-base/src/base', './config.js', 'text!./adviceFeedback.html', 'text!./adviceFeedback.htm', 'text!./component.css', 'json!./component.json', 'pool/component-notify/src/notify/ui', 'pool/component-table/src/empty/ui'], function (BaseComponent, conf, tpl1, tpl2, css, json, Notify) {});

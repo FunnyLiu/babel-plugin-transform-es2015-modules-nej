@@ -1,0 +1,15 @@
+const ACTIVITY_VALUE_TYPE_COUPON = 1;
+const ACTIVITY_VALUE_TYPE_QRCODE = 2;
+const ACTIVITY_VALUE_TYPE_TERMURL = 3;
+
+function getListKey(type, opt) {
+
+};
+
+export {
+    getListKey,
+    ACTIVITY_VALUE_TYPE_COUPON,
+    ACTIVITY_VALUE_TYPE_QRCODE,
+    ACTIVITY_VALUE_TYPE_TERMURL
+}
+

@@ -1,0 +1,12 @@
+define([], function (p) {
+    const ACTIVITY_VALUE_TYPE_COUPON = 1;
+    const ACTIVITY_VALUE_TYPE_QRCODE = 2;
+    const ACTIVITY_VALUE_TYPE_TERMURL = 3;
+
+    function getListKey(type, opt) {};
+
+    p.getListKey = getListKey;
+    p.ACTIVITY_VALUE_TYPE_COUPON = ACTIVITY_VALUE_TYPE_COUPON;
+    p.ACTIVITY_VALUE_TYPE_QRCODE = ACTIVITY_VALUE_TYPE_QRCODE;
+    p.ACTIVITY_VALUE_TYPE_TERMURL = ACTIVITY_VALUE_TYPE_TERMURL;
+});
