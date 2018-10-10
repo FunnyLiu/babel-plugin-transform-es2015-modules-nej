@@ -70,10 +70,13 @@ module.exports = function (babel) {
     }
 
     addPrefix = function (url) {
-        const [htmlExp, jsonExp] = [/(\.html?)|(\.css)$/, /(\.json)$/];
+        const [htmlExp, jsonExp, cssExp] = [/(\.html?)/, /(\.json)$/, /(\.css)$/];
 
         if (htmlExp.test(url)) {
             url = 'text!' + url;
+        }
+        if (cssExp.test(url)) {
+            url = 'css!' + url;
         }
         if (jsonExp.test(url)) {
             url = 'json!' + url;
@@ -99,7 +102,7 @@ module.exports = function (babel) {
     return {
         visitor: {
             Program: {
-                enter: function enter(path) { 
+                enter: function enter(path) {
                     // 不处理
                     // if (!path.isCallExpression()) {
                     //     this.stop = true;
@@ -111,7 +114,7 @@ module.exports = function (babel) {
                     //     this.stop = true;
                     //     return false;
                     // }
-                
+
                     // var arg = args[0];
                     // if (!arg.isStringLiteral()) {
                     //     this.stop = true;
@@ -135,7 +138,7 @@ module.exports = function (babel) {
                     if (this.stop) {
                         return;
                     }
-                    const statements = path.node.body; // 获取全部语句  
+                    const statements = path.node.body; // 获取全部语句
 
                     let names = [],
                         urls = [],
@@ -194,17 +197,17 @@ module.exports = function (babel) {
                         if (isOutPutResult) {
                             names.push(INJECT_PARAMS[0]);
                         }
-    
+
                         if (extraParams) {
                             names = names.concat(INJECT_PARAMS.slice(1, ++extraParams));
                         }
-    
+
                         if (returnStatement) {
                             contents.push(returnStatement);
                         }
-    
+
                         let newBody = createDefine(urls, names, contents);
-    
+
                         /**
                          * 清空文件中的代码，创建define，放入body中
                          */
